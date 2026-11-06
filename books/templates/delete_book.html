@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitobni o'chirish</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; padding: 80px 20px; text-align: center; }
+        .card { max-width: 450px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        h2 { color: #0f172a; margin-top: 0; }
+        p { color: #475569; margin-bottom: 25px; }
+        .btn-group { display: flex; gap: 10px; justify-content: center; }
+        .btn { padding: 10px 20px; border-radius: 8px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; }
+        .btn-danger { background-color: #dc2626; color: white; }
+        .btn-danger:hover { background-color: #b91c1c; }
+        .btn-secondary { background-color: #e2e8f0; color: #334155; }
+        .btn-secondary:hover { background-color: #cbd5e1; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>O'chirishni tasdiqlang</h2>
+        <p>Haqiqatan ham <strong>"{{ book.title }}"</strong> kitobini o'chirib yubormoqchimisiz?</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="btn-group">
+                <button type="submit" class="btn btn-danger">Ha, o'chirish</button>
+                <a href="{% url 'books' %}" class="btn btn-secondary">Bekor qilish</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

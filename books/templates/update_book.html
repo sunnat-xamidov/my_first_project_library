@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitobni tahrirlash</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; padding: 50px 20px; }
+        .form-container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        h2 { margin-top: 0; color: #0f172a; }
+        form p { margin-bottom: 20px; }
+        form label { display: block; margin-bottom: 8px; font-weight: 600; color: #334155; }
+        form input, form textarea, form select { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; }
+        .btn { background-color: #0284c7; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; width: 100%; }
+        .btn:hover { background-color: #0369a1; }
+        .back { display: block; text-align: center; margin-top: 15px; color: #64748b; text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Kitobni tahrirlash</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">O'zgarishlarni saqlash</button>
+        </form>
+        <a href="{% url 'books' %}" class="back">Bekor qilish</a>
+    </div>
+</body>
+</html>
